@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block style %}
+.detail-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+.rating {
+    color: #ffc107;
+    font-size: 24px;
+    font-weight: bold;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+}
+.back-link:hover {
+    background: #0056b3;
+    text-decoration: none;
+}
+{% endblock %}
+
+{% block content %}
+<div class="detail-card">
+    <h1>{{ book.title }}</h1>
+    <div class="rating">⭐ {{ book.rating }}/5</div>
+    
+    {% if book.description %}
+    <h3>Description</h3>
+    <p>{{ book.description }}</p>
+    {% else %}
+    <p><em>No description available.</em></p>
+    {% endif %}
+    
+    <p><strong>Book ID:</strong> {{ book.id }}</p>
+</div>
+
+<a href="/books/html" class="back-link">← Back to Library</a>
+{% endblock %}

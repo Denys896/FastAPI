@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Book Library{% endblock %}
+
+{% block style %}
+.book-list {
+    list-style: none;
+    padding: 0;
+}
+.book-item {
+    padding: 15px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    border-radius: 4px;
+}
+.book-item:hover {
+    background: #e9ecef;
+}
+.rating {
+    color: #ffc107;
+    font-weight: bold;
+}
+{% endblock %}
+
+{% block content %}
+<h1>📚 Book Library</h1>
+
+{% if books %}
+<ul class="book-list">
+    {% for book in books %}
+    <li class="book-item">
+        <a href="/books/{{ book.id }}/html">
+            <strong>{{ book.title }}</strong>
+        </a>
+        <span class="rating">⭐ {{ book.rating }}/5</span>
+        {% if book.description %}
+        <p>{{ book.description }}</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No books available.</p>
+{% endif %}
+{% endblock %}
