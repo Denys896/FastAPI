@@ -8,8 +8,8 @@ router = APIRouter(
 @router.get("")
 def list_users():
     return [
-        {"id": 1, "name": "Alice"},
-        {"id": 2, "name": "Bob"}
+        {"id": 1, "name": "Denys"},
+        {"id": 2, "name": "NotDenys"}
     ]
 
 @router.get("/{id}")
